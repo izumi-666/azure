@@ -1,0 +1,10 @@
+{
+  "name": "node24-static-site",
+  "version": "1.0.0",
+  "description": "Static site for Azure App Service",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
