@@ -1,10 +1,12 @@
 {
-  "name": "node24-static-site",
+  "name": "azure-static-site",
   "version": "1.0.0",
-  "description": "Static site for Azure App Service",
+  "description": "Simple static site for Azure Web App",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
   }
 }
