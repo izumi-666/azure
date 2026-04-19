@@ -13,27 +13,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js version
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24.x'
+          node-version: '24'
 
-      - name: npm install, build, and test
+      - name: Debug files
+        run: ls -la
+
+      - name: Install
+        run: npm install
+
+      - name: Build/Test
         run: |
-          npm install
           npm run build --if-present
           npm run test --if-present
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: node-app
-          path: .
 
   deploy:
     runs-on: ubuntu-latest
